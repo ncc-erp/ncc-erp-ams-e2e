@@ -39,6 +39,8 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "phantomjs-prebuilt": "^2.1.16",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "assert": "^2.1.0",
+    "selenium-webdriver": "^4.16.0"
   }
 }
