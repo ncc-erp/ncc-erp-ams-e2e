@@ -27,40 +27,140 @@ class AssetPage extends BasePage {
         return this.driver.findElement(By.id('purchase_date'));
     }
 
-//     get alertUserName() {
-//         return this.driver.findElement(By.css('[data-test-id="username"] [role="alert"]'));
-//     }
+    get kieuTaiSanDrd() {
+        return this.driver.findElement(By.id('model'));
+    }
 
-//     get passwordTtb() {
-//         return this.driver.findElement(By.id('password'));
-//     }
+    get headPhoneOption() {
+        return this.driver.findElement(By.css("[title='Headphone - HN1 Headphone - HN1']"));
+    }
 
-//     get currentURL() {
-//         return this.driver.getCurrentUrl();
-//     }
+    get nhaCungCapDrd() {
+        return this.driver.findElement(By.id('supplier'));
+    }
+   
+    get lazadaOption() {
+        return this.driver.findElement(By.css("[title='Lazada']"));
+    }
 
-//     get alert() {
-//         return this.driver.findElement(By.className('ant-notification-notice-message'));
-//     }
+    get vanPhongDrd() {
+        return this.driver.findElement(By.id('rtd_location'));
+    }
 
+    get nccHN1Option() {
+        return this.driver.findElement(By.css("[title='NCC HN1']"));
+    }
 
-//     // actions
+    get maDonHangTtb() {
+        return this.driver.findElement(By.id('order_number'));
+    }
+
+    get baoHanhTtb() {
+        return this.driver.findElement(By.id('warranty_months'));
+    }
+
+    get chiPhiMuaHangTtb() {
+        return this.driver.findElement(By.id('purchase_cost'));
+    }
+
+    get trangThaiDrd() {
+        return this.driver.findElement(By.id('status_label'));
+    }
+
+    get readyOption() {
+        return this.driver.findElement(By.css("[title='Ready to Deploy']"));
+    }
+    get moTaTtb() {
+        return this.driver.findElement(By.css("[data-testid='text-area']"));
+    }
+
+    get themMoi_Modal_Btn() {
+        return this.driver.findElement(By.css("[type='submit']"));
+    }
+
+    get themMoiSuccessToast() {
+        return this.driver.findElement(By.className('ant-notification-notice-description'));
+    }
+
+    
+   //action
 
 //     async go() {
 //         await this.driver.navigate().to("http://dev-ams.nccsoft.vn/login");
 //     }
 
-//     async clickToSigninBtn() {
-//         await this.signInBtn.click();
-//     }
+ async clickToThemMoiBtn() {
+       await this.themMoiBtn.click();
+  }
 
-//     async typeToUserNameTtb(userName: string) {
-//         await this.userNameTtb.sendKeys(userName);
-//     }
+    async typeToTheTaiSanTtb(theTaiSan: string) {
+        await this.theTaiSanTtb.sendKeys(theTaiSan);
+    }
 
-//     async typeToPasswordTtb(password: string) {
-//         await this.passwordTtb.sendKeys(password);
-//     }
+    async typeToTenTaiSanTtb(tenTaiSan: string) {
+        await this.tenTaiSanTtb.sendKeys(tenTaiSan);
+    }
+
+    async typeToSoSeriTtb(soSeri: string) {
+        await this.soSeriTtb.sendKeys(soSeri);
+    }
+
+    async typeToNgayNhapTtb(ngayNhap: string) {
+        await this.ngayNhapTtb.sendKeys(ngayNhap);
+    }
+
+    async clickToKieuTaiSanDrd() {
+        await this.kieuTaiSanDrd.click();
+   }
+
+   async selectHeadphoneOption() {
+    await this.headPhoneOption.click();
+}
+
+async clickToNhaCungCapDrd() {
+    await this.nhaCungCapDrd.click();
+}
+
+async selectLazadaOption() {
+await this.lazadaOption.click();
+}
+
+async clickToVanPhongDrd() {
+    await this.vanPhongDrd.click();
+}
+
+async selectHN1Option() {
+await this.nccHN1Option.click();
+}
+
+async typeToMaDonHangTtb(maDonHang: string) {
+    await this.maDonHangTtb.sendKeys(maDonHang);
+}
+
+async typeToChiPhiMuaHangTt(chiPhiMuaHang: string) {
+    await this.chiPhiMuaHangTtb.sendKeys(chiPhiMuaHang);
+}
+
+async typeToBaoHanhTtb(baoHanh: string) {
+    await this.baoHanhTtb.sendKeys(baoHanh);
+}
+
+async clickToTrangThaiDrd() {
+    await this.trangThaiDrd.click();
+}
+
+async selectReadyOption() {
+await this.readyOption.click();
+}
+
+async typeToMoTaTtb(moTa: string) {
+    await this.moTaTtb.sendKeys(moTa);
+}
+
+async clickToThemMoiOnMoDal() {
+    await this.themMoi_Modal_Btn.click();
+}
+
 
 //     async verifyMessagePassword(errorMessage: string) {
 //         await this.driver.wait(until.elementIsVisible(this.alertPassword), 1000);
