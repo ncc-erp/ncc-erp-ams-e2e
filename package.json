@@ -26,6 +26,7 @@
     "@babel/register": "^7.21.0",
     "@cucumber/cucumber": "^8.11.1",
     "@cucumber/pretty-formatter": "^1.0.0",
+    "@types/selenium-webdriver": "^4.1.22",
     "babel-plugin-add-module-exports": "^1.0.4",
     "chai": "^4.3.7",
     "chromedriver": "^123",
@@ -37,10 +38,10 @@
     "tsconfig-paths": "^4.2.0"
   },
   "dependencies": {
+    "assert": "^2.1.0",
     "dotenv": "^16.3.1",
     "phantomjs-prebuilt": "^2.1.16",
-    "ts-node": "^10.9.2",
-    "assert": "^2.1.0",
-    "selenium-webdriver": "^4.16.0"
+    "selenium-webdriver": "^4.16.0",
+    "ts-node": "^10.9.2"
   }
 }
