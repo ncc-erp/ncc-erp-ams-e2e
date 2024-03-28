@@ -3,7 +3,8 @@ import { By, Builder, until, WebDriver } from "selenium-webdriver";
 import assert from "assert";
 import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
 import { getDriver, initDriver } from "@/support/driver";
-import LoginPage from "../pageObjects/LoginPage";
+import {LoginPage, AssetPage} from"../pageObjects/LoginPage";
+
 let driver: WebDriver;
 
 BeforeAll(async function()  {
@@ -12,6 +13,9 @@ BeforeAll(async function()  {
 });
 
 Given("I go to the Log in page", async function () {
-  await LoginPage.go();
+  await LoginPage.go(true);
 });
 
+When ("I click on Thêm mới button", async function() {
+  await AssetPage.clickToSigninBtn();
+})

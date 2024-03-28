@@ -1,6 +1,6 @@
-"use strict";
 
-import webdriver, { WebDriver } from "selenium-webdriver";
+
+import webdriver, { Builder, WebDriver } from "selenium-webdriver";
 import phantomjs from "phantomjs-prebuilt";
 import { setDefaultTimeout } from "@cucumber/cucumber";
 import { AppConfig } from '../app.config';
@@ -8,6 +8,14 @@ const chrome = require("selenium-webdriver/chrome");
 
 let driver: WebDriver;
 setDefaultTimeout(20 * 5000);
+export const initDriver = async () => {
+  if (driver) return driver;
+
+  driver = await new Builder().forBrowser("chrome").build();
+  await driver.manage().setTimeouts({ implicit: 10000 });
+
+  return driver;
+}
 
 const buildFirefoxDriver = () => {
   return new webdriver.Builder().forBrowser("firefox").build();
