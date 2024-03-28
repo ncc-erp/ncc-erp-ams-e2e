@@ -1,6 +1,8 @@
 import { By, until } from "selenium-webdriver";
 import { BasePage } from "./BasePage";
 import assert from "assert";
+import { waitElementVisible } from "@/features/Verrify/waitElemVisible";
+import { verifyText } from "@/features/Verrify/verifyText";
 
 class AssetPage extends BasePage {
     constructor() {
@@ -80,14 +82,16 @@ class AssetPage extends BasePage {
 
     get themMoiSuccessToast() {
         return this.driver.findElement(By.className('ant-notification-notice-description'));
-    }
+    };
 
     
+    for (let i = 0; i <= 22; i++) {
+        let column[[i]]='';
+        get column[i]() {
+            return this.driver.findElement(By.css(`tr:nth-child(2) td:nth-child(${i + 3})`));
+        }
+    }
    //action
-
-//     async go() {
-//         await this.driver.navigate().to("http://dev-ams.nccsoft.vn/login");
-//     }
 
  async clickToThemMoiBtn() {
        await this.themMoiBtn.click();
@@ -159,6 +163,11 @@ async typeToMoTaTtb(moTa: string) {
 
 async clickToThemMoiOnMoDal() {
     await this.themMoi_Modal_Btn.click();
+}
+
+async verifyToastThemMoiSuccess(successMessage: string){
+    waitElementVisible(this.themMoiSuccessToast, successMessage)
+    verifyText(this.themMoiSuccessToast, successMessage)
 }
 
 
