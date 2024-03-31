@@ -84,14 +84,33 @@ class AssetPage extends BasePage {
         return this.driver.findElement(By.className('ant-notification-notice-description'));
     };
 
-    
-    for (let i = 0; i <= 22; i++) {
-        let column[[i]]='';
-        get column[i]() {
-            return this.driver.findElement(By.css(`tr:nth-child(2) td:nth-child(${i + 3})`));
-        }
-    }
+    // get columnTenTaiSan() {
+    //     return this.driver.findElement(By.css())
+    // }
+    // for (let i = 0; i <= 22; i++) {
+    //     let column[[i]]='';
+    //     get column[i]() {
+    //         return this.driver.findElement(By.css(`tr:nth-child(2) td:nth-child(${i + 3})`));
+    //     }
+    // }
    //action
+async verifyNewAssetOnTable(tenTaiSan: string, hinhAnh: string, theTaiSan: string, soSeri: string, kieuTaiSan: string, theLoai: string, trangThai: string, capPhatDen: string, viTri:string, vanPhong:string, kho:string, nhaCungCap: string, ngayNhap: string, chiPhiMuaHang: string, maDonHang: string, baoHanh: string, ngayHetHan: string, ghiChu: string, soLanCapPhat: string, soLanThuHoi: string, yeuCau: string, xacNhan: string, ngayCapPhat: string ){
+    let column = [];
+    //let result_located = [];
+    //let result_elem =[];
+    //let exp_result = ["Tên tài sản auto", "", "Thẻ tài sản test_auto", "11111", "Headphone - HN1", "Headphone", "Trong kho", "", "NCC HN1", "NCC HN1", "HN1", "Lazada", "", "1,000,000", "001", "6 months", "", "mô tả test", "0", "0", "0", "Chưa checkout", ""];
+    for (let i = 0; i <= 22; i++) {
+      //result_located[i] = By.css(`tr:nth-child(2) td:nth-child(${i + 3})`);
+      //await driver.wait(until.elementsLocated(result_located[i]), 1000);
+      //result_elem[i]= await driver.findElement(result_located[i]);
+      get column[i](){
+return this.driver.findElement(By.css(`tr:nth-child(2) td:nth-child(${i + 3})`))
+      }
+      await driver.wait(until.elementIsVisible(result_elem[i]), 1000)
+      act_result[i] = await result_elem[i].getText();
+      assert.equal(act_result[i], exp_result[i]);
+   
+}
 
  async clickToThemMoiBtn() {
        await this.themMoiBtn.click();
