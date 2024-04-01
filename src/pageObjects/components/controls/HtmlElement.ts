@@ -14,7 +14,7 @@ export class HTMLElement extends BaseElement {
   get webElement(): WebElementPromise | WebElement {
     return this.getCurrentElement();
   }
-
+  
   getCurrentElement(): WebElementPromise | WebElement {
     const item = this.findElementFn();
     // if promise
@@ -26,12 +26,13 @@ export class HTMLElement extends BaseElement {
   }
 
   // find inner
-  findElement(selectorFn) {
-    // todo more info for debug
-    return new HTMLElement(`${this.selector} // ${selectorFn}`, async () => {
-      return this.webElement.findElement(selectorFn);
-    })
-  }
+  // trang cmt
+  // findElement(selectorFn) {
+  //   // todo more info for debug
+  //   return new HTMLElement(`${this.selector} // ${selectorFn}`, async () => {
+  //     return this.webElement.findElement(selectorFn);
+  //   })
+  // }
 
   findElements(selectorFn) {
     return HtmlElementCollection.create(() => {
@@ -40,6 +41,7 @@ export class HTMLElement extends BaseElement {
   }
 
   // interaction
+  //trang cmt
   async click() {
     await this.wait(async() => {
       const element = this.getCurrentElement();
@@ -75,16 +77,17 @@ export class HTMLElement extends BaseElement {
   }
 
   // upload, file upload input
-  async upload(filePath) {
-    await this.driver.executeScript(
-      "document.querySelector(\"input[type='file']\").removeAttribute('style');"
-    );
-    console.log(process.cwd());
-    let filePathUrl =
-      process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
-    console.log("FILE PATH " + filePathUrl);
-    await this.webElement.type(filePathUrl);
-  }
+  //trang cmt
+  // async upload(filePath) {
+  //   await this.driver.executeScript(
+  //     "document.querySelector(\"input[type='file']\").removeAttribute('style');"
+  //   );
+  //   console.log(process.cwd());
+  //   let filePathUrl =
+  //     process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
+  //   console.log("FILE PATH " + filePathUrl);
+  //   await this.webElement.type(filePathUrl);
+  // }
 
   async hover() {
     await this.driver.actions().move({ origin: this.webElement }).perform();
@@ -165,11 +168,11 @@ export class HTMLElement extends BaseElement {
     await this.waitVisible();
     return await this.webElement.getRect();
   }
-
-  async getCssValue() {
-    await this.waitVisible();
-    return await this.webElement.getCssValue();
-  }
+//trang cmt
+  // async getCssValue() {
+  //   await this.waitVisible();
+  //   return await this.webElement.getCssValue();
+  // }
 
   // utils
   async waitVisible() {

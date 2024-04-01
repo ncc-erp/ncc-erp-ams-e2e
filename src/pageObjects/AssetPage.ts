@@ -9,6 +9,14 @@ export class AssetPage extends BasePage {
         super('/login')
     }
     // elements
+    get thietBiMenu() {
+        return this.driver.findElement(By.css("[data-test-id='menu'] > li:nth-child(2)"));
+    }
+
+    get tatCaSubMenu() {
+        return this.driver.findElement(By.css("li:nth-child(2) ul.ant-menu.ant-menu-sub.ant-menu-inline > li:first-child"));
+    }
+
     get themMoiBtn() {
         return this.driver.findElement(By.className('ant-btn ant-btn-default'));
     }
@@ -112,6 +120,14 @@ export class AssetPage extends BasePage {
 
     // }
 
+    async clickToThietBiMenu() {
+        await this.thietBiMenu.click();
+    }
+
+    async clickToTatCaSubmenu() {
+        await this.tatCaSubMenu.click();
+    }
+    
     async clickToThemMoiBtn() {
         await this.themMoiBtn.click();
     }
