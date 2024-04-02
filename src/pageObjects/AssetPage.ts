@@ -8,9 +8,10 @@ export class AssetPage extends BasePage {
     constructor() {
         super('/login')
     }
+    
     // elements
     get thietBiMenu() {
-        return this.driver.findElement(By.css("[data-test-id='menu'] > li:nth-child(2)"));
+        return this.driver.findElement(By.css("[data-test-id='menu'] > li:nth-child(2) > div:first-child"));
     }
 
     get tatCaSubMenu() {

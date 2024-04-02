@@ -14,9 +14,9 @@ BeforeAll(async function () {
   driver = getDriver();
 });
 
-Given("I go to the login page successfully", async function () {
-  await LoginPage.go(true);
-});
+// Given("I go to the login page successfully", async function () {
+//   await LoginPage.go(true);
+// });
 
 When("I click on Thiết bị menu", async function () {
   await AssetPage.clickToThietBiMenu();
