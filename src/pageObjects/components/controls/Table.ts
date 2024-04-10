@@ -44,9 +44,32 @@ export class Table extends BaseComponent {
     return cell;
   }
 
+  async getColumnIdex(columnName: string) {
+    return await this.headerColumns.getIndexByText(columnName);
+  }
+
   async getCellValue(columnName: string, rowIndex: number) {
     const cell = await this.getCell(columnName, rowIndex);
 
     return cell.getText();
+  }
+
+  async checkColumnSorting(sortingType: string, columnName: string) {
+    const valuesArray = await this.getColumnValuesArray(columnName);
+    const sortedArray = [...valuesArray].sort((a, b) => {
+        if (sortingType === 'ascending') {
+            return a.toString().localeCompare(b.toString(), 'vi');
+        } else if (sortingType === 'descending') {
+            return b.toString().localeCompare(a.toString(), 'vi');
+        }
+        return 0;
+    });
+    return JSON.stringify(valuesArray) === JSON.stringify(sortedArray);
+}
+
+  async getColumnValuesArray(columnName: string) {
+    const index = await this.getColumnIdex(columnName);
+    const valuesArray: any[] = await HtmlElementCollection.by(`.ant-table-row > td:nth-child(${index + 1})`).getTexts();
+    return valuesArray;
   }
 }
