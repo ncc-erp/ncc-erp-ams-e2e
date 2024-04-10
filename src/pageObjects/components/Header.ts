@@ -15,6 +15,9 @@ class Header extends BaseComponent {
   async getUsername() {
     return await this.username.getText();
   }
+  async isUserLoggedIn() {
+    return await this.logoutBtn.isDisplayed();
+  }
 }
 
 export default new Header();
