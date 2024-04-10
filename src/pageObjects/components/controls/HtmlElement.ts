@@ -1,4 +1,4 @@
-import { By, WebElementPromise, WebElement } from "selenium-webdriver";
+import { By, WebElementPromise, WebElement, Keys } from "selenium-webdriver";
 import { getDriver } from "../../../support/driver";
 import { BaseElement } from "./BaseElement";
 import { HtmlElementCollection } from "./HtmlElementCollection";
@@ -69,6 +69,11 @@ export class HTMLElement extends BaseElement {
     await this.webElement.sendKeys(text);
     console.log(`Type ${text} to ${this.selector}`);
   }
+
+  // async pressEnter() {
+  //   await this.waitVisible()
+  //   await this.webElement.sendKeys(Keys.ENTER)
+  // }
 
   async clear() {
     await this.webElement.clear();
