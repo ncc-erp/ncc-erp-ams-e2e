@@ -8,11 +8,11 @@ class createNewAsset extends BasePage {
     }
     // elements
     get thietBiMenu() {
-        return this.driver.findElement(By.css("[data-test-id='menu'] > li:nth-child(2) > div:first-child"));
+        return this.driver.findElement(By.xpath("//span[text() = 'Thiết bị']"));
     }
 
     get tatCaSubMenu() {
-        return this.driver.findElement(By.css("li:nth-child(2) ul.ant-menu.ant-menu-sub.ant-menu-inline > li:first-child"));
+        return this.driver.findElement(By.xpath("//*[@data-test-id='sub-menu-item' and text()='Tất cả']"));
     }
 
     get themMoiButton() {
@@ -84,29 +84,15 @@ class createNewAsset extends BasePage {
         return this.driver.findElement(By.xpath("//div[@class='ant-notification-notice-description' and text() = 'Asset created successfully. :)']"))
     }
 
-    // get alertBlankTheTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
-    // }
-
-    // get alertBlankKieuTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
-    // }
-
-    // get alertBlankVanPhong() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
-    // }
-    // get alertBlankBaoHanh() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
-    // }
-    // get alertBlankTrangThai() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
-    // }
-    // get alertBlankNhaCungCap() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
-    // }
-    
 
     // actions
+    async clickToThietBiMenu() {
+        await this.thietBiMenu.click();
+    }
+
+    async clickToTatCaSubmenu() {
+        await this.tatCaSubMenu.click();
+    }
     async clickToThemMoiButton() {
         await this.themMoiButton.click()
     }
@@ -172,8 +158,45 @@ class createNewAsset extends BasePage {
     }
 
     async verifyToastSuccess(toast: string) {
-        await verifyText(this.toastSuccess, toast)
-    } 
+        waitElementVisible(this.toastSuccess, toast)
+        verifyText(this.toastSuccess, toast)
+    }
+}
+
+export default new createNewAsset();
+function waitElementVisible(_toastSuccess: any, _toast: string) {
+    throw new Error("Function not implemented.");
+}
+
+function verifyText(_toastSuccess: any, _toast: string) {
+    throw new Error("Function not implemented.");
+}
+
+
+
+
+    // get alertBlankTheTaiSan() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
+    // }
+
+    // get alertBlankKieuTaiSan() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
+    // }
+
+    // get alertBlankVanPhong() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
+    // }
+    // get alertBlankBaoHanh() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
+    // }
+    // get alertBlankTrangThai() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
+    // }
+    // get alertBlankNhaCungCap() {
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
+    // }
+
+
     // async verifyAlertBlankTheTaiSan(errorMessage: string) {
     //     await verifyText(this.alertBlankTheTaiSan, errorMessage)
     // }
@@ -194,12 +217,3 @@ class createNewAsset extends BasePage {
     // async verifyAlertBlankNhaCungCap(errorMessage: string) {
     //     await verifyText(this.alertBlankNhaCungCap, errorMessage)
     // }
-}
-
-
-
-export default new createNewAsset();
-
-function verifyText(toastSuccess: any, toast: string) {
-    throw new Error("Function not implemented.");
-}
