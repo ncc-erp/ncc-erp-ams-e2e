@@ -31,7 +31,7 @@ export class HtmlElementCollection extends BaseElement {
 
   findElementByText(text) {
     return new HTMLElement(`${this.selector} // ${text}`, async () => {
-      let element: WebElement | null = null;
+      let element = null;
       let elements = await this.findElements();
 
       for (const item of elements) {

@@ -2,7 +2,7 @@
 import { By, Builder, until, WebDriver } from "selenium-webdriver";
 import assert from "assert";
 import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
-import { getDriver, initDriver } from "@/support/driver";
+import { getDriver } from "@/support/driver";
 import AssetPage from '@/pageObjects/AssetPage';
 import LoginPage from '@/pageObjects/LoginPage';
 
@@ -13,10 +13,6 @@ BeforeAll(async function () {
   await initDriver();
   driver = getDriver();
 });
-
-// Given("I go to the login page successfully", async function () {
-//   await LoginPage.go(true);
-// });
 
 When("I click on Thiết bị menu", async function () {
   await AssetPage.clickToThietBiMenu();
@@ -81,3 +77,7 @@ When("I click the Thêm mới button on Thêm mới modal", async function () {
 Then("I expect that toast {string} is displayed", async function (toast) {
   await AssetPage.verifyToastThemMoiSuccess(toast);
 });
+function initDriver() {
+  throw new Error("Function not implemented.");
+}
+

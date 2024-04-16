@@ -5,8 +5,8 @@ import { HtmlElementCollection } from "./HtmlElementCollection";
 const AsyncFunction = (async () => { }).constructor;
 
 export class HTMLElement extends BaseElement {
-  public findElementFn: () => Promise<WebElement>;
-  constructor(selector, findElementFn: () => Promise<WebElement>) {
+  public findElementFn: () => WebElementPromise | WebElement;
+  public findElementFn: () => WebElementPromise | WebElement;
     super(selector);
     this.findElementFn = findElementFn;
   }
@@ -19,20 +19,19 @@ export class HTMLElement extends BaseElement {
     const item = this.findElementFn();
     // if promise
     if (this.findElementFn instanceof AsyncFunction === true) {
-      return new WebElementPromise(this.driver, item);
+      return new WebElementPromise( this.driver, item );
     }
 
-    return item as WebElementPromise | WebElement;
+    return item;
   }
 
   // find inner
-  // trang cmt
-  // findElement(selectorFn) {
-  //   // todo more info for debug
-  //   return new HTMLElement(`${this.selector} // ${selectorFn}`, async () => {
-  //     return this.webElement.findElement(selectorFn);
-  //   })
-  // }
+  findElement(selectorFn) {
+    // todo more info for debug
+    return new HTMLElement(`${this.selector} // ${selectorFn}`, async () => {
+      return this.webElement.findElement(selectorFn);
+    })
+  }
 
   findElements(selectorFn) {
     return HtmlElementCollection.create(() => {
@@ -41,9 +40,8 @@ export class HTMLElement extends BaseElement {
   }
 
   // interaction
-  //trang cmt
   async click() {
-    await this.wait(async () => {
+    await this.wait(async() => {
       const element = this.getCurrentElement();
       // in case need move cursor to element to display
       if (!(await this.isDisplayedNoWait())) {
@@ -77,17 +75,16 @@ export class HTMLElement extends BaseElement {
   }
 
   // upload, file upload input
-  //trang cmt
-  // async upload(filePath) {
-  //   await this.driver.executeScript(
-  //     "document.querySelector(\"input[type='file']\").removeAttribute('style');"
-  //   );
-  //   console.log(process.cwd());
-  //   let filePathUrl =
-  //     process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
-  //   console.log("FILE PATH " + filePathUrl);
-  //   await this.webElement.type(filePathUrl);
-  // }
+  async upload(filePath) {
+    await this.driver.executeScript(
+      "document.querySelector(\"input[type='file']\").removeAttribute('style');"
+    );
+    console.log(process.cwd());
+    let filePathUrl =
+      process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
+    console.log("FILE PATH " + filePathUrl);
+    await this.webElement.type(filePathUrl);
+  }
 
   async hover() {
     await this.driver.actions().move({ origin: this.webElement }).perform();
@@ -168,11 +165,11 @@ export class HTMLElement extends BaseElement {
     await this.waitVisible();
     return await this.webElement.getRect();
   }
-  //trang cmt
-  // async getCssValue() {
-  //   await this.waitVisible();
-  //   return await this.webElement.getCssValue();
-  // }
+  trang cmt
+  async getCssValue() {
+    await this.waitVisible();
+    return await this.webElement.getCssValue();
+  }
 
   // utils
   async waitVisible() {
