@@ -2,11 +2,11 @@ import { By, WebElementPromise, WebElement } from "selenium-webdriver";
 import { getDriver } from "../../../support/driver";
 import { BaseElement } from "./BaseElement";
 import { HtmlElementCollection } from "./HtmlElementCollection";
-const AsyncFunction = (async () => { }).constructor;
+const AsyncFunction = (async () => {}).constructor;
 
 export class HTMLElement extends BaseElement {
   public findElementFn: () => WebElementPromise | WebElement;
-  public findElementFn: () => WebElementPromise | WebElement;
+  constructor(selector, findElementFn: () => WebElementPromise | WebElement) {
     super(selector);
     this.findElementFn = findElementFn;
   }
@@ -14,7 +14,7 @@ export class HTMLElement extends BaseElement {
   get webElement(): WebElementPromise | WebElement {
     return this.getCurrentElement();
   }
-  
+
   getCurrentElement(): WebElementPromise | WebElement {
     const item = this.findElementFn();
     // if promise
@@ -46,12 +46,12 @@ export class HTMLElement extends BaseElement {
       // in case need move cursor to element to display
       if (!(await this.isDisplayedNoWait())) {
         await this.driver
-          .actions()
-          .move({ origin: element })
-          .perform();
+        .actions()
+        .move({ origin: element })
+        .perform();
       }
 
-      if (await this.isDisplayedNoWait() && await this.isEnabledNoWait()) {
+      if(await this.isDisplayedNoWait() && await this.isEnabledNoWait()) {
         // click
         await element.click();
         console.log(`click to ${this.selector}`);
@@ -165,7 +165,7 @@ export class HTMLElement extends BaseElement {
     await this.waitVisible();
     return await this.webElement.getRect();
   }
-  trang cmt
+
   async getCssValue() {
     await this.waitVisible();
     return await this.webElement.getCssValue();
