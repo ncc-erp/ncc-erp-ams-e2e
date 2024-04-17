@@ -1,19 +1,16 @@
 import { By, Builder, until, WebDriver } from "selenium-webdriver";
-import assert from "assert";
 import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
 import { getDriver } from "@/support/driver";
 import CreateAsset from "@/pageObjects/CreateAsset";
 let driver: WebDriver;
 
 BeforeAll(async function () {
-    await initDriver();
+    // initDriver();
     driver = getDriver();
 });
 
 
-function initDriver() {
-    throw new Error("Function not implemented.");
-}
+
 When("I click on Thiết bị menu", async function () {
     await CreateAsset.clickToThietBiMenu();
 });

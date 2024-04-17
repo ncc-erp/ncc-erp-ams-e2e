@@ -8,9 +8,9 @@ Feature: Asset
         And I click on Thiết bị menu
         And I click on Tất cả submenu
         And I click on "Thêm mới" button
-        When I type "abc123" for the "Thẻ tài sản" field
+        And I type "abc123" for the "Thẻ tài sản" field
         And I type "145ad" for the "Số Sê-ri" field
-        And I click on "Kiểu tài sản" field"
+        And I click on "Kiểu tài sản" field
         And I select "Monitor - DN monitor - DN" for "Kiểu tài sản" field
         And I I click on "Văn phòng" field
         And I select "NCC DN" for "Văn phòng" field
@@ -18,7 +18,7 @@ Feature: Asset
         And I click on "Trạng thái" field
         And I select "Ready to Deploy" for "Trạng thái" field
         And I type "Chi's asset" for "Tên tài sản" field
-        # And I select "30/3/2024" for "Ngày nhập" field
+        And I select "30/3/2024" for "Ngày nhập" field
         And I click on "Nhà cung cấp" field
         And I select "Tiki" for "Nhà cung cấp" field
         And I type "MDH01" fot "Mã đơn hàng" field
