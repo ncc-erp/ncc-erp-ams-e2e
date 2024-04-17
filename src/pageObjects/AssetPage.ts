@@ -3,6 +3,8 @@ import assert from "assert";
 import { waitElementVisible } from "@/features/Verrify/waitElemVisible";
 import { verifyText } from "@/features/Verrify/verifyText";
 import { HTMLElement } from "./components/controls/HtmlElement";
+import { HtmlElementCollection } from "./components/controls/HtmlElementCollection";
+import { WebElement } from "selenium-webdriver";
 
 export class AssetPage extends BasePage {
     constructor() {
@@ -19,7 +21,7 @@ export class AssetPage extends BasePage {
     }
 
     get themMoiBtn() {
-        return HTMLElement.by('.ant-btn ant-btn-default');
+        return HTMLElement.by('.ant-btn.ant-btn-default');
     }
 
     get theTaiSanTtb() {
@@ -174,8 +176,9 @@ export class AssetPage extends BasePage {
     }
 
     async verifyToastThemMoiSuccess(successMessage: string) {
-        waitElementVisible(this.themMoiSuccessToast, successMessage)
-        verifyText(this.themMoiSuccessToast, successMessage)
+         waitElementVisible(this.themMoiSuccessToast as unknown as WebElement, successMessage)
+        verifyText(this.themMoiSuccessToast as unknown as WebElement, successMessage)
+        
     }
 }
 export default new AssetPage();

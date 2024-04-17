@@ -1,7 +1,7 @@
 
 import { By, Builder, until, WebDriver } from "selenium-webdriver";
 import assert from "assert";
-import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
+import { BeforeAll, Given, Then, When} from "@cucumber/cucumber"
 import { getDriver } from "@/support/driver";
 import AssetPage from '@/pageObjects/AssetPage';
 import LoginPage from '@/pageObjects/LoginPage';
@@ -10,7 +10,7 @@ import LoginPage from '@/pageObjects/LoginPage';
 let driver: WebDriver;
 
 BeforeAll(async function () {
-  await initDriver();
+  //await initDriver();
   driver = getDriver();
 });
 

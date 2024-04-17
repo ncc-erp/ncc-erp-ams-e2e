@@ -19,6 +19,7 @@ export class HTMLElement extends BaseElement {
     const item = this.findElementFn();
     // if promise
     if (this.findElementFn instanceof AsyncFunction === true) {
+      //@ts-ignore
       return new WebElementPromise( this.driver, item );
     }
 
@@ -28,6 +29,7 @@ export class HTMLElement extends BaseElement {
   // find inner
   findElement(selectorFn) {
     // todo more info for debug
+    //@ts-ignore
     return new HTMLElement(`${this.selector} // ${selectorFn}`, async () => {
       return this.webElement.findElement(selectorFn);
     })
@@ -83,6 +85,7 @@ export class HTMLElement extends BaseElement {
     let filePathUrl =
       process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
     console.log("FILE PATH " + filePathUrl);
+    //@ts-ignore
     await this.webElement.type(filePathUrl);
   }
 
@@ -168,6 +171,7 @@ export class HTMLElement extends BaseElement {
 
   async getCssValue() {
     await this.waitVisible();
+    //@ts-ignore
     return await this.webElement.getCssValue();
   }
 
