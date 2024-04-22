@@ -24,33 +24,33 @@ class createNewAsset extends BasePage {
     }
 
     get theTaiSanField() {
-        return this.driver.findElement(By.xpath("//input[@placeholder ='Thẻ tài sản']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='asset_tag']"))
     }
 
     get soSeRiField() {
-        return this.driver.findElement(By.xpath("//input[@placeholder ='Serial']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='serial']"))
     }
 
     get kieuTaiSanField() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Lựa chọn một kiểu tài sản']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='model']"))
     }
-
+    
     get kieuTaiSanOption() {
         return this.driver.findElement(By.xpath("//div[text() = 'Monitor - DN Monitor - DN']"))
     }
     get vanPhongField() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Lựa chọn một văn phòng']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='rtd_location']"))
     }
 
     get vanPhongOption() {
         return this.driver.findElement(By.xpath("//div[@title = 'NCC DN']"))
     }
     get baoHanhField() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Bảo hành']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'number' and @id='warranty_months']"))
     }
 
     get trangThaiField() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Chọn tình trạng']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='status_label']"))
     }
 
     get trangThaiOption() {
@@ -58,11 +58,11 @@ class createNewAsset extends BasePage {
     }
 
     get tenTaiSanField() {
-        return this.driver.findElement(By.xpath("//input[@placeholder ='Tên tài sản']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='name' and @placeholder='Tên tài sản']"))
     }
 
     get nhaCungCapField() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Lựa chọn nhà cung cấp']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='supplier']"))
     }
 
     get nhaCungCapOption() {
@@ -70,11 +70,11 @@ class createNewAsset extends BasePage {
     }
 
     get maDonHangField() {
-        return this.driver.findElement(By.xpath("//input[@placeholder ='Mã đơn hàng']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='order_number']"))
     }
 
     get chiPhiMuaHangField() {
-        return this.driver.findElement(By.xpath("//input[@placeholder ='Chi phí mua hàng']"))
+        return this.driver.findElement(By.xpath("//input[@type = 'number' and @id='purchase_cost']"))
     }
 
     get themMoiButtonSubmit() {
