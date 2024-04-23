@@ -36,7 +36,7 @@ class createNewAsset extends BasePage {
     }
     
     get kieuTaiSanOption() {
-        return this.driver.findElement(By.xpath("//div[text() = 'Monitor - DN Monitor - DN']"))
+        return this.driver.findElement(By.xpath("//div[text() = 'Headphone - DN Headphone - DN']"))
     }
     get vanPhongField() {
         return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='rtd_location']"))
@@ -121,7 +121,7 @@ class createNewAsset extends BasePage {
         await this.vanPhongOption.click()
     }
 
-    async typeBaoHanh(bHnumber: number) {
+    async typeBaoHanh(bHnumber: string) {
         await this.baoHanhField.sendKeys(bHnumber)
     }
 
@@ -149,7 +149,7 @@ class createNewAsset extends BasePage {
         await this.maDonHangField.sendKeys(mdh)
     }
 
-    async typeChiPhiMuaHang(cost: number) {
+    async typeChiPhiMuaHang(cost: string) {
         await this.chiPhiMuaHangField.sendKeys(cost)
     }
 

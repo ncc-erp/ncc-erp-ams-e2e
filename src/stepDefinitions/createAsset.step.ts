@@ -30,37 +30,37 @@ When('I type {string} for the "Số Sê-ri" field', async function (soSeRi) {
 When('I click on "Kiểu tài sản" field', async function () {
     await CreateAsset.clickToKieuTaiSanField();
 })
-When(' I select "Monitor - DN monitor - DN" for "Kiểu tài sản" field', async function () {
+When('I select Headphone - DN Headphone - DN for "Kiểu tài sản" field', async function () {
     await CreateAsset.selectKieuTaiSan();
 })
 When('I click on "Văn phòng" field', async function () {
     await CreateAsset.clickToVanPhongField();
 })
-When(' I select "NCC DN" for "Văn phòng" field', async function () {
+When('I select NCC DN for "Văn phòng" field', async function () {
     await CreateAsset.selectVanPhong();
 })
-When('I type {string} for the "Bảo hành" field', async function (bHnumber) {
+When('I type {string} for "Bảo hành" field', async function (bHnumber) {
     await CreateAsset.typeBaoHanh(bHnumber);
 })
 When('I click on "Trạng thái" field', async function () {
     await CreateAsset.clickToTrangThaiField();
 })
-When(' I select "Ready to Deploy" for "Trạng thái" field', async function () {
+When('I select Ready to Deploy for "Trạng thái" field', async function () {
     await CreateAsset.selectTrangThai();
 })
-When('I type {string} for the "Tên tài sản" field', async function (tenTaiSan) {
+When('I type {string} for "Tên tài sản" field', async function (tenTaiSan) {
     await CreateAsset.typeTenTaiSan(tenTaiSan);
 })
 When('I click on "Nhà cung cấp" field', async function () {
     await CreateAsset.clickToNhaCungCapField();
 })
-When(' I select "Tiki" for "Nhà cung cấp" field', async function () {
+When('I select "Tiki" for "Nhà cung cấp" field', async function () {
     await CreateAsset.selectNhaCungCap();
 })
-When('I type {string} for the "Mã đơn hàng" field', async function (mdh) {
+When('I type {string} fot "Mã đơn hàng" field', async function (mdh) {
     await CreateAsset.typeMaDonHang(mdh);
 })
-When('I type {string} for the "Chi phí mua hàng" field', async function (cost) {
+When('I type {string} for "Chi phí mua hàng" field', async function (cost) {
     await CreateAsset.typeChiPhiMuaHang(cost);
 })
 When('I click on "Thêm mới" button in modal', async function () {
