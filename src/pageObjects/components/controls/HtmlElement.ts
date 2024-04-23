@@ -90,6 +90,9 @@ export class HTMLElement extends BaseElement {
     console.log("FILE PATH " + filePathUrl);
     await this.webElement.type(filePathUrl);
   }
+  async sendKeys(file) {
+    await this.driver.sendKeys(file);
+  }
 
   async hover() {
     await this.driver.actions().move({ origin: this.webElement }).perform();
