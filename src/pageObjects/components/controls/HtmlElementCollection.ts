@@ -23,6 +23,7 @@ export class HtmlElementCollection extends BaseElement {
   }
 
   findElementByIndex(index) {
+    //@ts-ignore
     return new HTMLElement(`${this.selector} // ${index}`, async () => {
       const elements = await this.findElements();
       return elements[index];
@@ -30,6 +31,7 @@ export class HtmlElementCollection extends BaseElement {
   }
 
   findElementByText(text) {
+    //@ts-ignore
     return new HTMLElement(`${this.selector} // ${text}`, async () => {
       let element = null;
       let elements = await this.findElements();
@@ -37,6 +39,7 @@ export class HtmlElementCollection extends BaseElement {
       for (const item of elements) {
         const textItem = (await item.getText()).trim();
         if (textItem.includes(text)) {
+          //@ts-ignore
           element = item;
           break;
         }
