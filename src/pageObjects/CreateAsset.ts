@@ -1,6 +1,8 @@
 import assert from "assert";
 import { By, until } from "selenium-webdriver";
 import { BasePage } from "./BasePage";
+import { waitElementVisible } from "@/features/verrify/waitElemVisible";
+import { verifyText } from "@/features/verrify/verifyText";
 
 class createNewAsset extends BasePage {
     constructor() {
@@ -34,7 +36,7 @@ class createNewAsset extends BasePage {
     get kieuTaiSanField() {
         return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='model']"))
     }
-    
+
     get kieuTaiSanOption() {
         return this.driver.findElement(By.xpath("//div[text() = 'Headphone - DN Headphone - DN']"))
     }
@@ -164,56 +166,48 @@ class createNewAsset extends BasePage {
 }
 
 export default new createNewAsset();
-function waitElementVisible(_toastSuccess: any, _toast: string) {
-    throw new Error("Function not implemented.");
-}
-
-function verifyText(_toastSuccess: any, _toast: string) {
-    throw new Error("Function not implemented.");
-}
 
 
 
+// get alertBlankTheTaiSan() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
+// }
 
-    // get alertBlankTheTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
-    // }
+// get alertBlankKieuTaiSan() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
+// }
 
-    // get alertBlankKieuTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
-    // }
-
-    // get alertBlankVanPhong() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
-    // }
-    // get alertBlankBaoHanh() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
-    // }
-    // get alertBlankTrangThai() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
-    // }
-    // get alertBlankNhaCungCap() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
-    // }
+// get alertBlankVanPhong() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
+// }
+// get alertBlankBaoHanh() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
+// }
+// get alertBlankTrangThai() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
+// }
+// get alertBlankNhaCungCap() {
+//     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
+// }
 
 
-    // async verifyAlertBlankTheTaiSan(errorMessage: string) {
-    //     await verifyText(this.alertBlankTheTaiSan, errorMessage)
-    // }
+// async verifyAlertBlankTheTaiSan(errorMessage: string) {
+//     await verifyText(this.alertBlankTheTaiSan, errorMessage)
+// }
 
-    // async verifyAlertBlankKieuTaiSan(errorMessage: string) {
-    //     await verifyText(this.alertBlankKieuTaiSan, errorMessage)
-    // }
+// async verifyAlertBlankKieuTaiSan(errorMessage: string) {
+//     await verifyText(this.alertBlankKieuTaiSan, errorMessage)
+// }
 
-    // async verifyAlertBlankVanPhong(errorMessage: string) {
-    //     await verifyText(this.alertBlankVanPhong, errorMessage)
-    // }
-    // async verifyAlertBlankBaoHanh(errorMessage: string) {
-    //     await verifyText(this.alertBlankBaoHanh, errorMessage)
-    // }
-    // async verifyAlertBlankTrangThai(errorMessage: string) {
-    //     await verifyText(this.alertBlankTrangThai, errorMessage)
-    // }
-    // async verifyAlertBlankNhaCungCap(errorMessage: string) {
-    //     await verifyText(this.alertBlankNhaCungCap, errorMessage)
-    // }
+// async verifyAlertBlankVanPhong(errorMessage: string) {
+//     await verifyText(this.alertBlankVanPhong, errorMessage)
+// }
+// async verifyAlertBlankBaoHanh(errorMessage: string) {
+//     await verifyText(this.alertBlankBaoHanh, errorMessage)
+// }
+// async verifyAlertBlankTrangThai(errorMessage: string) {
+//     await verifyText(this.alertBlankTrangThai, errorMessage)
+// }
+// async verifyAlertBlankNhaCungCap(errorMessage: string) {
+//     await verifyText(this.alertBlankNhaCungCap, errorMessage)
+// }
