@@ -1,4 +1,4 @@
-import { By, WebElementPromise, WebElement } from "selenium-webdriver";
+import { By, WebElementPromise, WebElement, Keys } from "selenium-webdriver";
 import { getDriver } from "../../../support/driver";
 import { BaseElement } from "./BaseElement";
 import { HtmlElementCollection } from "./HtmlElementCollection";
@@ -70,6 +70,11 @@ export class HTMLElement extends BaseElement {
     console.log(`Type ${text} to ${this.selector}`);
   }
 
+  // async pressEnter() {
+  //   await this.waitVisible()
+  //   await this.webElement.sendKeys(Keys.ENTER)
+  // }
+
   async clear() {
     await this.webElement.clear();
   }
@@ -84,6 +89,9 @@ export class HTMLElement extends BaseElement {
       process.cwd().replace(/\\/g, "/") + `/upload/${filePath}`;
     console.log("FILE PATH " + filePathUrl);
     await this.webElement.type(filePathUrl);
+  }
+  async sendKeys(file) {
+    await this.driver.sendKeys(file);
   }
 
   async hover() {
