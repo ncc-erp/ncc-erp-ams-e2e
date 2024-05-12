@@ -1,6 +1,6 @@
 import assert from "assert";
-import { By, until } from "selenium-webdriver";
 import { BasePage } from "./BasePage";
+import { HTMLElement } from "./components/controls/HtmlElement";
 
 class createNewAsset extends BasePage {
     constructor() {
@@ -8,80 +8,80 @@ class createNewAsset extends BasePage {
     }
     // elements
     get thietBiMenu() {
-        return this.driver.findElement(By.xpath("//span[text() = 'Thiết bị']"));
+        return HTMLElement.byXpath("//span[text() = 'Thiết bị']");
     }
 
     get tatCaSubMenu() {
-        return this.driver.findElement(By.xpath("//*[@data-test-id='sub-menu-item' and text()='Tất cả']"));
+        return HTMLElement.byXpath("//*[@data-test-id='sub-menu-item' and text()='Tất cả']");
     }
 
     get themMoiButton() {
-        return this.driver.findElement(By.xpath("//span[@class = 'ant-page-header-heading-extra']//span[text() = 'Thêm mới']"))
+        return HTMLElement.byXpath("//span[@class = 'ant-page-header-heading-extra']//span[text() = 'Thêm mới']")
     }
 
     get taoTaiSanModal() {
-        return this.driver.findElement(By.xpath("//div[@class = 'ant-modal-content']"))
+        return HTMLElement.byXpath("//div[@class = 'ant-modal-content']")
     }
 
     get theTaiSanField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='asset_tag']"))
+        return HTMLElement.byXpath("//input[@type = 'text' and @id='asset_tag']")
     }
 
     get soSeRiField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='serial']"))
+        return HTMLElement.byXpath("//input[@type = 'text' and @id='serial']")
     }
 
     get kieuTaiSanField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='model']"))
+        return HTMLElement.byXpath("//input[@type = 'search' and @id='model']")
     }
     
     get kieuTaiSanOption() {
-        return this.driver.findElement(By.xpath("//div[text() = 'Headphone - DN Headphone - DN']"))
+        return HTMLElement.byXpath("//div[text() = 'Headphone - DN Headphone - DN']")
     }
     get vanPhongField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='rtd_location']"))
+        return HTMLElement.byXpath("//input[@type = 'search' and @id='rtd_location']")
     }
 
     get vanPhongOption() {
-        return this.driver.findElement(By.xpath("//div[@title = 'NCC DN']"))
+        return HTMLElement.byXpath("//div[@title = 'NCC DN']")
     }
     get baoHanhField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'number' and @id='warranty_months']"))
+        return HTMLElement.byXpath("//input[@type = 'number' and @id='warranty_months']")
     }
 
     get trangThaiField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='status_label']"))
+        return HTMLElement.byXpath("//input[@type = 'search' and @id='status_label']")
     }
 
     get trangThaiOption() {
-        return this.driver.findElement(By.xpath("//div[@title='Ready to Deploy']"))
+        return HTMLElement.byXpath("//div[@title='Ready to Deploy']")
     }
 
     get tenTaiSanField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='name' and @placeholder='Tên tài sản']"))
+        return HTMLElement.byXpath("//input[@type = 'text' and @id='name' and @placeholder='Tên tài sản']")
     }
 
     get nhaCungCapField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'search' and @id='supplier']"))
+        return HTMLElement.byXpath("//input[@type = 'search' and @id='supplier']")
     }
 
     get nhaCungCapOption() {
-        return this.driver.findElement(By.xpath("//div[@title= 'Tiki']"))
+        return HTMLElement.byXpath("//div[@title= 'Tiki']")
     }
 
     get maDonHangField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'text' and @id='order_number']"))
+        return HTMLElement.byXpath("//input[@type = 'text' and @id='order_number']")
     }
 
     get chiPhiMuaHangField() {
-        return this.driver.findElement(By.xpath("//input[@type = 'number' and @id='purchase_cost']"))
+        return HTMLElement.byXpath("//input[@type = 'number' and @id='purchase_cost']")
     }
 
     get themMoiButtonSubmit() {
-        return this.driver.findElement(By.xpath("//button[@type='submit']//span[text() = 'Thêm mới']"))
+        return HTMLElement.byXpath("//button[@type='submit']//span[text() = 'Thêm mới']")
     }
     get toastSuccess() {
-        return this.driver.findElement(By.xpath("//div[@class='ant-notification-notice-description' and text() = 'Asset created successfully. :)']"))
+        return HTMLElement.byXpath("//div[@class='ant-notification-notice-description' and text() = 'Asset created successfully. :)']")
     }
 
 
@@ -98,11 +98,11 @@ class createNewAsset extends BasePage {
     }
 
     async typeTheTaiSan(theTaiSan: string) {
-        await this.theTaiSanField.sendKeys(theTaiSan)
+        await this.theTaiSanField.type(theTaiSan)
     }
 
     async typeSoSeRi(soSeRi: string) {
-        await this.soSeRiField.sendKeys(soSeRi)
+        await this.soSeRiField.type(soSeRi)
     }
 
     async clickToKieuTaiSanField() {
@@ -122,7 +122,7 @@ class createNewAsset extends BasePage {
     }
 
     async typeBaoHanh(bHnumber: string) {
-        await this.baoHanhField.sendKeys(bHnumber)
+        await this.baoHanhField.type(bHnumber)
     }
 
     async clickToTrangThaiField() {
@@ -134,7 +134,7 @@ class createNewAsset extends BasePage {
     }
 
     async typeTenTaiSan(tenTaiSan: string) {
-        await this.tenTaiSanField.sendKeys(tenTaiSan)
+        await this.tenTaiSanField.type(tenTaiSan)
     }
 
     async clickToNhaCungCapField() {
@@ -146,11 +146,11 @@ class createNewAsset extends BasePage {
     }
 
     async typeMaDonHang(mdh: string) {
-        await this.maDonHangField.sendKeys(mdh)
+        await this.maDonHangField.type(mdh)
     }
 
     async typeChiPhiMuaHang(cost: string) {
-        await this.chiPhiMuaHangField.sendKeys(cost)
+        await this.chiPhiMuaHangField.type(cost)
     }
 
     async clickToThemMoiButtonSubmit() {
@@ -176,24 +176,24 @@ function verifyText(_toastSuccess: any, _toast: string) {
 
 
     // get alertBlankTheTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
     // }
 
     // get alertBlankKieuTaiSan() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
     // }
 
     // get alertBlankVanPhong() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
     // }
     // get alertBlankBaoHanh() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
     // }
     // get alertBlankTrangThai() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
     // }
     // get alertBlankNhaCungCap() {
-    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
+    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
     // }
 
 
