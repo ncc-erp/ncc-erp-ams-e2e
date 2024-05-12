@@ -1,6 +1,5 @@
 import assert from "assert";
 import { BasePage } from "./BasePage";
-import { HTMLElement } from "./components/controls/HtmlElement";
 
 class createNewAsset extends BasePage {
     constructor() {
@@ -34,7 +33,7 @@ class createNewAsset extends BasePage {
     get kieuTaiSanField() {
         return HTMLElement.byXpath("//input[@type = 'search' and @id='model']")
     }
-    
+
     get kieuTaiSanOption() {
         return HTMLElement.byXpath("//div[text() = 'Headphone - DN Headphone - DN']")
     }
@@ -164,56 +163,48 @@ class createNewAsset extends BasePage {
 }
 
 export default new createNewAsset();
-function waitElementVisible(_toastSuccess: any, _toast: string) {
-    throw new Error("Function not implemented.");
-}
-
-function verifyText(_toastSuccess: any, _toast: string) {
-    throw new Error("Function not implemented.");
-}
-
 
 
 
     // get alertBlankTheTaiSan() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Thẻ tài sản bắt buộc']"))
     // }
 
     // get alertBlankKieuTaiSan() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Kiểu tài sản bắt buộc']"))
     // }
 
     // get alertBlankVanPhong() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Văn phòng bắt buộc']"))
     // }
     // get alertBlankBaoHanh() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Bảo hành bắt buộc']"))
     // }
     // get alertBlankTrangThai() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Trạng thái bắt buộc']"))
     // }
     // get alertBlankNhaCungCap() {
-    //     return HTMLElement.byXpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
+    //     return this.driver.findElement(By.xpath("//div[@role = 'alert' and text() = 'Nhà cung cấp bắt buộc']"))
     // }
 
 
-    // async verifyAlertBlankTheTaiSan(errorMessage: string) {
-    //     await verifyText(this.alertBlankTheTaiSan, errorMessage)
-    // }
+// async verifyAlertBlankTheTaiSan(errorMessage: string) {
+//     await verifyText(this.alertBlankTheTaiSan, errorMessage)
+// }
 
-    // async verifyAlertBlankKieuTaiSan(errorMessage: string) {
-    //     await verifyText(this.alertBlankKieuTaiSan, errorMessage)
-    // }
+// async verifyAlertBlankKieuTaiSan(errorMessage: string) {
+//     await verifyText(this.alertBlankKieuTaiSan, errorMessage)
+// }
 
-    // async verifyAlertBlankVanPhong(errorMessage: string) {
-    //     await verifyText(this.alertBlankVanPhong, errorMessage)
-    // }
-    // async verifyAlertBlankBaoHanh(errorMessage: string) {
-    //     await verifyText(this.alertBlankBaoHanh, errorMessage)
-    // }
-    // async verifyAlertBlankTrangThai(errorMessage: string) {
-    //     await verifyText(this.alertBlankTrangThai, errorMessage)
-    // }
-    // async verifyAlertBlankNhaCungCap(errorMessage: string) {
-    //     await verifyText(this.alertBlankNhaCungCap, errorMessage)
-    // }
+// async verifyAlertBlankVanPhong(errorMessage: string) {
+//     await verifyText(this.alertBlankVanPhong, errorMessage)
+// }
+// async verifyAlertBlankBaoHanh(errorMessage: string) {
+//     await verifyText(this.alertBlankBaoHanh, errorMessage)
+// }
+// async verifyAlertBlankTrangThai(errorMessage: string) {
+//     await verifyText(this.alertBlankTrangThai, errorMessage)
+// }
+// async verifyAlertBlankNhaCungCap(errorMessage: string) {
+//     await verifyText(this.alertBlankNhaCungCap, errorMessage)
+// }
