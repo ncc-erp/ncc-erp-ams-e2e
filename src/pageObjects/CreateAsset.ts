@@ -1,5 +1,8 @@
 import assert from "assert";
 import { BasePage } from "./BasePage";
+import { waitElementVisible } from "@/features/Verrify/waitElemVisible";
+import { verifyText } from "@/features/Verrify/verifyText";
+import { HTMLElement } from "./components/controls/HtmlElement";
 
 class createNewAsset extends BasePage {
     constructor() {
