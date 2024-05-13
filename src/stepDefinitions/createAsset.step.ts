@@ -2,12 +2,12 @@ import { By, Builder, until, WebDriver } from "selenium-webdriver";
 import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
 import { getDriver } from "@/support/driver";
 import CreateAsset from "@/pageObjects/CreateAsset";
-let driver: WebDriver;
+// let driver: WebDriver;
 
-BeforeAll(async function () {
-    // initDriver();
-    driver = getDriver();
-});
+// BeforeAll(async function () {
+//     // initDriver();
+//     driver = getDriver();
+// });
 
 
 
