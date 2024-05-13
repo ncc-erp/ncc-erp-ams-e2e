@@ -50,6 +50,9 @@ class createNewAsset extends BasePage {
     get tenTaiSanField() {
         return HTMLElement.byXpath("//input[@type = 'text' and @id='name' and @placeholder='Tên tài sản']")
     }
+    get ngayNhapField() {
+        return HTMLElement.byXpath("//input[@type='date' and @id='purchase_date']")
+    }
     get nhaCungCapField() {
         return HTMLElement.byXpath("//input[@type = 'search' and @id='supplier']")
     }
@@ -61,6 +64,9 @@ class createNewAsset extends BasePage {
     }
     get chiPhiMuaHangField() {
         return HTMLElement.byXpath("//input[@type = 'number' and @id='purchase_cost']")
+    }
+    get moTaField() {
+        return HTMLElement.byXpath("//textarea[@class='mde-text']")
     }
     get themMoiButtonSubmit() {
         return HTMLElement.byXpath("//button[@type='submit']//span[text() = 'Thêm mới']")
@@ -108,6 +114,11 @@ class createNewAsset extends BasePage {
     async typeTenTaiSan(tenTaiSan: string) {
         await this.tenTaiSanField.type(tenTaiSan)
     }
+
+    async typeNgayNhap(ngayNhap: string) {
+        await this.ngayNhapField.type(ngayNhap)
+    }
+
     async clickToNhaCungCapField() {
         await this.nhaCungCapField.click()
     }
@@ -119,6 +130,9 @@ class createNewAsset extends BasePage {
     }
     async typeChiPhiMuaHang(cost: string) {
         await this.chiPhiMuaHangField.type(cost)
+    }
+    async typeMoTa(moTa: string) {
+        await this.moTaField.type(moTa)
     }
     async clickToThemMoiButtonSubmit() {
         await this.themMoiButtonSubmit.click()

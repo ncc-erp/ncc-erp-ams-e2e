@@ -1,15 +1,6 @@
 import { By, Builder, until, WebDriver } from "selenium-webdriver";
 import { BeforeAll, Given, Then, When } from "@cucumber/cucumber"
-import { getDriver } from "@/support/driver";
 import CreateAsset from "@/pageObjects/CreateAsset";
-// let driver: WebDriver;
-
-// BeforeAll(async function () {
-//     // initDriver();
-//     driver = getDriver();
-// });
-
-
 
 When("I click on Thiết bị menu", async function () {
     await CreateAsset.clickToThietBiMenu();
@@ -51,6 +42,9 @@ When('I select Ready to Deploy for "Trạng thái" field', async function () {
 When('I type {string} for "Tên tài sản" field', async function (tenTaiSan) {
     await CreateAsset.typeTenTaiSan(tenTaiSan);
 })
+When('I type {string} for "Ngày nhập" field', async function (ngayNhap) {
+    await CreateAsset.typeNgayNhap(ngayNhap);
+})
 When('I click on "Nhà cung cấp" field', async function () {
     await CreateAsset.clickToNhaCungCapField();
 })
@@ -62,6 +56,9 @@ When('I type {string} fot "Mã đơn hàng" field', async function (mdh) {
 })
 When('I type {string} for "Chi phí mua hàng" field', async function (cost) {
     await CreateAsset.typeChiPhiMuaHang(cost);
+})
+When('I type {string} for "Mô tả" field', async function (moTa) {
+    await CreateAsset.typeMoTa(moTa)
 })
 When('I click on "Thêm mới" button in modal', async function () {
     await CreateAsset.clickToThemMoiButtonSubmit();
