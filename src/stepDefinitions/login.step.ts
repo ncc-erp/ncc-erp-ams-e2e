@@ -32,6 +32,8 @@ When("I attempt to login with {string} and {string}", async function (username: 
 });
 
 When("Log in Ams successfully as {string} user", async function (role: 'admin' | 'user') {
+  let isLoggedIn = await LoginPage.displayLogOutBtn();
+    if (isLoggedIn == false) {
   let username = "";
   let password = "";
   switch(role) {// factory case
@@ -43,7 +45,8 @@ When("Log in Ams successfully as {string} user", async function (role: 'admin' |
       break;
   }
   await LoginPage.login(username, password);
-});
+}});
+
 // end
 When("I enter email as {string}", async function (emailAddress) {
   await LoginPage.enterUserEmail(emailAddress);
