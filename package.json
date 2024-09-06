@@ -28,7 +28,7 @@
     "@cucumber/pretty-formatter": "^1.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "chai": "^4.3.7",
-    "chromedriver": "^123",
+    "chromedriver": "^128",
     "cucumber-html-reporter": "^5.5.0",
     "eslint": "^8.34.0",
     "imap": "^0.8.19",
