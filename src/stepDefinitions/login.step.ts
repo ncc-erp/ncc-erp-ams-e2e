@@ -3,10 +3,13 @@ import { expect } from 'chai';
 import DashboardPage from '@/pageObjects/DashboardPage';
 import LoginPage from '@/pageObjects/LoginPage';
 import { TEST_DATA } from '@/data';
+import Header from '@/pageObjects/components/Header';
+import { getDriver } from '@/support/driver';
 
 Given("I go to the login page successfully", async () => {
   await LoginPage.go(true);
 });
+
 Then(
   "I expect to see login error message {string} and {string}",
   async function (userNameError, passwordError) {
@@ -32,17 +35,22 @@ When("I attempt to login with {string} and {string}", async function (username: 
 });
 
 When("Log in Ams successfully as {string} user", async function (role: 'admin' | 'user') {
-  let username = "";
-  let password = "";
-  switch(role) {// factory case
-    case 'admin':
-      username = TEST_DATA.adminUser[0].username;
-      password = TEST_DATA.adminUser[0].password;
-      break;
-    default:
-      break;
+  if (!await Header.isUserLoggedIn()) {
+    let username = "";
+    let password = "";
+    switch (role) {
+      case 'admin':
+        username = TEST_DATA.adminUser[0].username;
+        password = TEST_DATA.adminUser[0].password;
+        break;
+      default:
+        break;
+    }
+    await LoginPage.login(username, password);
+  } else {
+    await getDriver().navigate().refresh();
   }
-  await LoginPage.login(username, password);
+
 });
 // end
 When("I enter email as {string}", async function (emailAddress) {
